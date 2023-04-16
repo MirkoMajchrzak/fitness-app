@@ -1,13 +1,11 @@
-import { useState } from "react";
+import React, { Component } from 'react'
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
+export default class App extends Component {
+  render() {
+    return (
     <div className="App">
-      <h1 class="text-lg">Hallo Welt!</h1>
+     <h1 className="text-4xl font-bold text-green-600">Hallo Welt!</h1>
     </div>
-  );
+    )
+  }
 }
-
-export default App;
