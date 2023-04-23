@@ -8,6 +8,12 @@ module.exports = {
       colors: {
         greybg: "#3a4151",
         bar: "#13161d",
+        orange: "#f8cf64",
+        pink: "#f69bc0",
+        cyan: "#5ef3e5",
+        yellowgreen: "#eefea2",
+        greenblue: "#5ef3e8",
+        seablue: "#3a54e4",
         lgorangepink:
           "linear-gradient(135deg, rgba(251,207,100,1) 0%, rgba(253,155,192,1) 100%)",
         lggreenyellow:
