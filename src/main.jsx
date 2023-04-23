@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import Dash from "./App/dash";
+import Nav from "./components/navbar";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Dash />
+    <Nav />
   </React.StrictMode>,
   document.getElementById("root")
 );
