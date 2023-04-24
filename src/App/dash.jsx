@@ -1,4 +1,5 @@
 import React from "react";
+import Nav from "../components/navbar";
 
 export default function dash() {
   return (
@@ -20,6 +21,7 @@ export default function dash() {
           </div>
         </div>
       </div>
+      <Nav />
     </div>
   );
 }
