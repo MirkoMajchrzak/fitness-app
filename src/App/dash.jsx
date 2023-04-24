@@ -15,9 +15,7 @@ export default function dash() {
         <div className="h-52 w-full bg-greybg rounded-3xl">
           <div className="h-full m-7 flex flex-col justify-end">
             <h3 className="text-lg font-bold leading-7">Tag 2</h3>
-            <h2>
-              Titel des Programms
-            </h2>
+            <h2>Titel des Programms</h2>
             <p className="mb-7 text-xs">26 Min. · Beweglichkeit</p>
           </div>
         </div>

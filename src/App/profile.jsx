@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function profile() {
   return (
@@ -9,10 +9,15 @@ export default function profile() {
         <p className="mt-3">Profil bearbeiten</p>
       </div>
       <p>Aktueller Trainingsplan</p>
-      <div className="bg-greybg">
-        <div className="bg-slate-400 w-12 h-12 rounded-full align-middle">40%</div>
-
+      <div className="h-28 bg-greybg rounded-3xl flex items-center gap-4">
+        <div className="ml-5 bg-slate-400 w-12 h-12 rounded-full align-middle">
+          <p className="flex justify-center items-center">40%</p>
+        </div>
+        <div className="felx flex-col">
+          <p>Titel des Programms</p>
+          <p className="text-xs">1 von 8 geschafft</p>
+        </div>
       </div>
     </div>
-  )
+  );
 }
