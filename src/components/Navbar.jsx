@@ -10,7 +10,7 @@ const Navbar = () => {
   }
 
   function ProfileButton() {
-    console.log('lead me to my profile')
+    console.log('lead me to my profile!')
   }
   return (
     <div className="flex justify-between bg-bar px-8 py-4 rounded-t-3xl sticky fixed bottom-0 left-0 right-0">
