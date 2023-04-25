@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function profile() {
   return (
     <div className="mx-5 flex-col justify-center space-y-4">
