@@ -45,17 +45,16 @@ const App = () => {
 
   return (
     <ApolloProvider client={client}>
-    <div>
-      <Navbar
-        onBrowseButtonClick={handleBrowseButtonClick}
-        onHomeButtonClick={handleHomeButtonClick}
-        onProfileButtonClick={handleProfileButtonClick}
-      />
-      {renderScreen()}
-    </div>
+      <div>
+        <Navbar
+          onBrowseButtonClick={handleBrowseButtonClick}
+          onHomeButtonClick={handleHomeButtonClick}
+          onProfileButtonClick={handleProfileButtonClick}
+        />
+        {renderScreen()}
+      </div>
     </ApolloProvider>
   );
-}
+};
 
 ReactDOM.render(<App />, document.getElementById("root"));
-

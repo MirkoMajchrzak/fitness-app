@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+
 
 export default function dash() {
   return (
@@ -21,7 +21,6 @@ export default function dash() {
           </div>
         </div>
       </div>
-      {/*<Navbar />*/}
     </div>
   );
 }
