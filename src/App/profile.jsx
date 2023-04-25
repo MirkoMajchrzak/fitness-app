@@ -19,7 +19,7 @@ export default function profile() {
           <p className="text-xs">1 von 8 geschafft</p>
         </div>
       </div>
-      <Navbar />
+      {/*<Navbar />*/}
     </div>
   );
 }

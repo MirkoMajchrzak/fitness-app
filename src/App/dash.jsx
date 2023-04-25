@@ -21,7 +21,7 @@ export default function dash() {
           </div>
         </div>
       </div>
-      <Navbar />
+      {/*<Navbar />*/}
     </div>
   );
 }
