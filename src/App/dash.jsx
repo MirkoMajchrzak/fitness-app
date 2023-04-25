@@ -1,10 +1,10 @@
 import React from "react";
-import Nav from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 export default function dash() {
   return (
     <div>
-      <div className=" mb-20 mx-5 flex-col justify-center">
+      <div className=" mb-5 mx-5 flex-col justify-center">
         <h1 className="my-10 text-4xl text-white font-bold">Hi Mirko!</h1>
         <div className="flex justify-center">
           <img className="w-10/12" src="./images/homescreen.svg" />
@@ -17,11 +17,11 @@ export default function dash() {
           <div className="h-full m-7 flex flex-col justify-end">
             <h3 className="text-lg font-bold leading-7">Tag 2</h3>
             <h2>Titel des Programms</h2>
-            <p className="mb-7 text-xs">26 Min. · Beweglichkeit</p>
+            <p className="mb-5 text-xs">26 Min. · Beweglichkeit</p>
           </div>
         </div>
       </div>
-      <Nav />
+      <Navbar />
     </div>
   );
 }

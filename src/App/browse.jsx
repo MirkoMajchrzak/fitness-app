@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 export default function browse() {
   return (
@@ -20,7 +20,7 @@ export default function browse() {
       <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-cyan to-yellowgreen rounded-3xl">
         <h2 className="ml-12">Titel des Programms</h2>
       </div>
-      <Nav />
+      <Navbar />
     </div>
   );
 }

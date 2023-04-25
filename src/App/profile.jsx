@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 export default function profile() {
   return (
@@ -19,7 +19,7 @@ export default function profile() {
           <p className="text-xs">1 von 8 geschafft</p>
         </div>
       </div>
-      <Nav />
+      <Navbar />
     </div>
   );
 }
