@@ -8,6 +8,8 @@ import {
 } from "@apollo/client";
 import "./index.css";
 import Dash from "./App/dash";
+import Browse from "./App/browse";
+import Profile from "./App/profile";
 import Nav from "./components/navbar";
 
 const httpLink = createHttpLink({
@@ -21,7 +23,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Dash />
+    <Browse />
     <Nav />
   </ApolloProvider>,
   document.getElementById("root")
