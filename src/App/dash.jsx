@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function dash() {
+  console.log(window.location)
   return (
     <div>
       <div className=" mb-5 mx-5 flex-col justify-center">

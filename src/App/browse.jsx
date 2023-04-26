@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function browse() {
+  console.log(window.location)
   return (
     <div className="mb-20 mx-5 flex-col justify-center space-y-4">
       <h2 className="mt-14">Browse</h2>
