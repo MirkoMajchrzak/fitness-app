@@ -1,30 +1,43 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
-  ApolloProvider,
   ApolloClient,
-  createHttpLink,
   InMemoryCache,
+  ApolloProvider,
+  gql,
 } from "@apollo/client";
 import "./index.css";
 import Dash from "./App/dash";
 import Browse from "./App/browse";
 import Profile from "./App/profile";
-import Nav from "./components/navbar";
 
-const httpLink = createHttpLink({
-  uri: "http://localhost:4000",
-});
+const root = createRoot(document.getElementById("root"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dash />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/browse",
+    element: <Browse />,
+  },
+]);
 
 const client = new ApolloClient({
-  link: httpLink,
+  uri: "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clge1u44d0e9f01upbd60ajac/master",
   cache: new InMemoryCache(),
 });
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Browse />
-    <Nav />
-  </ApolloProvider>,
-  document.getElementById("root")
+root.render(
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
+  </React.StrictMode>
 );

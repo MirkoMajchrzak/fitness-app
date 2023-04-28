@@ -1,9 +1,10 @@
-import React from "react";
+import { useQuery, gql } from "@apollo/client";
+
+import DefaultLayout from "../Layouts/DefaultLayout";
 
 export default function dash() {
-  console.log(window.location)
   return (
-    <div>
+    <DefaultLayout>
       <div className=" mb-5 mx-5 flex-col justify-center">
         <h1 className="my-10 text-4xl text-white font-bold">Hi Mirko!</h1>
         <div className="flex justify-center">
@@ -21,6 +22,6 @@ export default function dash() {
           </div>
         </div>
       </div>
-    </div>
+    </DefaultLayout>
   );
 }
