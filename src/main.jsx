@@ -8,9 +8,9 @@ import {
   gql,
 } from "@apollo/client";
 import "./index.css";
-import Dash from "./App/dash";
-import Browse from "./App/browse";
-import Profile from "./App/profile";
+import Dash from "./App/Dash";
+import Browse from "./App/Browse";
+import Profile from "./App/Profile";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -20,12 +20,12 @@ const router = createBrowserRouter([
     element: <Dash />,
   },
   {
-    path: "/profile",
-    element: <Profile />,
-  },
-  {
     path: "/browse",
     element: <Browse />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 

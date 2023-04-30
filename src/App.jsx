@@ -1,7 +1,7 @@
 import { Routes, Route} from "react-router-dom";
-import Dash from "./App/dash";
-import Browse from "./App/browse";
-import Profile from "./App/profile";
+import Dash from "./App/Dash";
+import Browse from "./App/Browse";
+import Profile from "./App/Profile";
 
 function App() {
   return (
