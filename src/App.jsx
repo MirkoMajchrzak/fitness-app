@@ -3,7 +3,7 @@ import Dash from "./App/Dash";
 import Browse from "./App/Browse";
 import Profile from "./App/Profile";
 
-function App() {
+function App() 
   return (
     <Routes>
         <Route path="dash" element={<Dash />}>
@@ -12,6 +12,6 @@ function App() {
         </Route>            
     </Routes>
   );
-}
+
 
 export default App;
