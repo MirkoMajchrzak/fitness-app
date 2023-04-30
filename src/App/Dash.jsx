@@ -1,7 +1,27 @@
 import { useQuery, gql } from "@apollo/client";
 import DefaultLayout from "../Layouts/DefaultLayout";
 
+const PROGRAMS = gql`
+  query Programs {
+    programs {
+      id
+      name
+      focus
+      duration
+    }
+  }
+`;
+
 export default function dash() {
+  const { data, loading, error } = useQuery(PROGRAMS);
+
+  if (loading) {
+    return <h2>Loading, take your supps... </h2>;
+  }
+  if (error) {
+    return <h2>Something went wrong...</h2>;
+  }
+
   return (
     <DefaultLayout>
       <div className=" mb-5 mx-5 flex-col justify-center">
@@ -16,8 +36,10 @@ export default function dash() {
         <div className="h-52 w-full bg-greybg rounded-3xl">
           <div className="h-full m-7 flex flex-col justify-end">
             <h3 className="text-lg font-bold leading-7">Tag 2</h3>
-            <h2>Titel des Programms</h2>
-            <p className="mb-5 text-xs">26 Min. · Beweglichkeit</p>
+            <h2>{data.programs[0].name}</h2>
+            <p className="mb-5 text-xs">
+              {data.programs[0].duration} Min. · {data.programs[0].focus}
+            </p>
           </div>
         </div>
       </div>

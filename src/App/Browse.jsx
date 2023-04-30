@@ -1,4 +1,5 @@
 import DefaultLayout from "../Layouts/DefaultLayout";
+import { useQuery, gql } from "@apollo/client";
 
 export default function browse() {
   return (
