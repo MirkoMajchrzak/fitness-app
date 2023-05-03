@@ -14,7 +14,7 @@ export default function profile() {
           <div className="ml-5 bg-slate-400 w-12 h-12 rounded-full align-middle">
             <p className="flex justify-center items-center">40%</p>
           </div>
-          <div className="felx flex-col">
+          <div className="flex flex-col">
             <p>Titel des Programms</p>
             <p className="text-xs">1 von 8 geschafft</p>
           </div>
