@@ -3,7 +3,6 @@ import home, { ReactComponent as HomeIcon } from "../images/home.svg";
 import browse, { ReactComponent as BrowseIcon } from "../images/hantel.svg";
 import profile, { ReactComponent as ProfileIcon } from "../images/profile.svg";
 
-
 export default function Navbar() {
   return (
     <div className="bg-bar rounded-t-2xl fixed left-0 right-0 bottom-0">
