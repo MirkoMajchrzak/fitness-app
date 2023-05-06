@@ -1,4 +1,5 @@
 import DefaultLayout from "../Layouts/DefaultLayout";
+import CircularProgressBar from "../components/Progressbar";
 
 export default function profile() {
   return (
@@ -11,8 +12,8 @@ export default function profile() {
         </div>
         <p>Aktueller Trainingsplan</p>
         <div className="h-28 bg-greybg rounded-3xl flex items-center gap-4">
-          <div className="ml-5 bg-slate-400 w-12 h-12 rounded-full align-middle">
-            <p className="flex justify-center items-center">40%</p>
+          <div className="ml-5 align-middle">
+          <CircularProgressBar />
           </div>
           <div className="flex flex-col">
             <p>Titel des Programms</p>
