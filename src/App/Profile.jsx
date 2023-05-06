@@ -4,7 +4,7 @@ import CircularProgressBar from "../components/Progressbar";
 export default function profile() {
   return (
     <DefaultLayout>
-      <div className="mx-5 flex-col justify-center space-y-4">
+      <div className="mb-10 flex-col justify-center space-y-4">
         <h2 className="mt-14">Mirko</h2>
         <div className="flex flex-col justify-center items-center">
           <div className="mt-14 w-32 h-32 bg-gradient-to-br from-greenblue to-seablue rounded-full shadow-lg shadow-black hover:shadow-transparent"></div>
