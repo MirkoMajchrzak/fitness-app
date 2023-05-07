@@ -37,26 +37,26 @@ export default function browse() {
   }
   return (
     <DefaultLayout>
-      <div className="mb-20 flex-col justify-center space-y-4">
+      <div className="mb-20 flex-col justify-center">
         <h2 className="mt-14">Browse</h2>
         <>
           <Button onClick={handleClick} className="cursor-pointer">
-            <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl">
+            <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl mb-4">
               <h2 className="ml-12">{data.programs[1].name}</h2>
             </div>
           </Button>
           {isOpen && <Exercise />}
         </>
-        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-cyan to-yellowgreen rounded-3xl">
+        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-cyan to-yellowgreen rounded-3xl mb-4">
           <h2 className="ml-12">{data.programs[0].name}</h2>
         </div>
-        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-greenblue to-seablue rounded-3xl">
+        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-greenblue to-seablue rounded-3xl mb-4">
           <h2 className="ml-12">{data.programs[1].name}</h2>
         </div>
-        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl">
+        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl mb-4">
           <h2 className="ml-12">{data.programs[0].name}</h2>
         </div>
-        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-cyan to-yellowgreen rounded-3xl">
+        <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-cyan to-yellowgreen rounded-3xl mb-4">
           <h2 className="ml-12">{data.programs[1].name}</h2>
         </div>
       </div>
