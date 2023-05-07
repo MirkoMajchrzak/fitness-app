@@ -20,3 +20,8 @@ h2 {
   font-weight: 700;
   line-height: 36px;
 }
+
+.btn-browse {
+  width: 100%;
+  text-align: left;
+}

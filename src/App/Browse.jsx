@@ -23,7 +23,7 @@ export default function browse() {
   };
   const Button = ({ onClick, children }) => {
     return (
-      <button type="button" onClick={onClick}>
+      <button type="button" class="btn-browse" onClick={onClick}>
         {children}
       </button>
     );
@@ -40,7 +40,7 @@ export default function browse() {
       <div className="mb-20 flex-col justify-center">
         <h2 className="mt-14">Browse</h2>
         <>
-          <Button onClick={handleClick} class="w-full cursor-pointer">
+          <Button onClick={handleClick} className="w-full cursor-pointer">
             <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl mb-4">
               <h2 className="ml-12">{data.programs[1].name}</h2>
             </div>
