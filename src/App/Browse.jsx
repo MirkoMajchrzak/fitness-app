@@ -23,7 +23,7 @@ export default function browse() {
   };
   const Button = ({ onClick, children }) => {
     return (
-      <button type="button" class="btn-browse" onClick={onClick}>
+      <button type="button" className="btn-browse" onClick={onClick}>
         {children}
       </button>
     );
