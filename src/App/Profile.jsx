@@ -13,7 +13,7 @@ export default function profile() {
         <p>Aktueller Trainingsplan</p>
         <div className="h-28 bg-greybg rounded-3xl flex items-center gap-4">
           <div className="ml-5 align-middle">
-          <CircularProgressBar />
+            <CircularProgressBar />
           </div>
           <div className="flex flex-col">
             <p>Titel des Programms</p>
