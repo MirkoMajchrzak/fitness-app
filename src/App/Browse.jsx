@@ -1,5 +1,7 @@
 import DefaultLayout from "../Layouts/DefaultLayout";
+import Exercise from "../Overlay/Exercise";
 import { useQuery, gql } from "@apollo/client";
+import { useState } from "react";
 
 const PROGRAMS = gql`
   query Programs {
@@ -14,6 +16,18 @@ const PROGRAMS = gql`
 
 export default function browse() {
   const { data, loading, error } = useQuery(PROGRAMS);
+  const [isOpen, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(!isOpen);
+  };
+  const Button = ({ onClick, children }) => {
+    return (
+      <button type="button" onClick={onClick}>
+        {children}
+      </button>
+    );
+  };
 
   if (loading) {
     return <h2>Loading, take your supps... </h2>;
@@ -25,9 +39,14 @@ export default function browse() {
     <DefaultLayout>
       <div className="mb-20 flex-col justify-center space-y-4">
         <h2 className="mt-14">Browse</h2>
+        <>
+        <Button onClick={handleClick} className="cursor-pointer">
         <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl">
           <h2 className="ml-12">{data.programs[1].name}</h2>
         </div>
+        </Button>
+        {isOpen && <Exercise />}
+        </>
         <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-cyan to-yellowgreen rounded-3xl">
           <h2 className="ml-12">{data.programs[0].name}</h2>
         </div>
