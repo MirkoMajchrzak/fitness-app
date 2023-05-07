@@ -38,7 +38,7 @@ export default function browse() {
   return (
     <DefaultLayout>
       <div className="mb-20 flex-col justify-center">
-        <h2 className="mt-14">Browse</h2>
+        <h2 className="mb-12 mt-14">Browse</h2>
         <>
           <Button onClick={handleClick} className="w-full cursor-pointer">
             <div className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl mb-4">
