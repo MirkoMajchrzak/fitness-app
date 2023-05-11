@@ -1,6 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { NavLink } from "react-router-dom";
-import Exercise from "./Exercise"
+import Exercise from "./Exercise";
 import { useState } from "react";
 import DefaultLayout from "../Layouts/DefaultLayout";
 
@@ -44,4 +44,3 @@ export default function browse() {
     </DefaultLayout>
   );
 }
-
