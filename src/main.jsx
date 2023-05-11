@@ -11,6 +11,7 @@ import "./index.css";
 import Dash from "./App/Dash";
 import Browse from "./App/Browse";
 import Profile from "./App/Profile";
+import Exercise from "./App/Exercise"
 
 const root = createRoot(document.getElementById("root"));
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/exercise",
+    element: <Exercise />,
   },
 ]);
 
