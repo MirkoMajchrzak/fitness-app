@@ -1,7 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import { NavLink } from "react-router-dom";
-import Exercise from "./Exercise";
 import { useState } from "react";
+import Exercise from "./Exercise";
 import DefaultLayout from "../Layouts/DefaultLayout";
 
 const PROGRAMS = gql`
