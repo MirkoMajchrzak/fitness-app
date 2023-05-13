@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import Exercise from "./Exercise";
 import DefaultLayout from "../Layouts/DefaultLayout";
@@ -32,13 +32,19 @@ export default function browse() {
       <div className="mb-20 flex-col justify-center">
         <h2 className="mb-12 mt-14">Browse</h2>
         {programs.map((program, index) => (
-          <NavLink
-            to="/exercise"
+          <Link
+            to={`/exercise/`} // ${program.id}
             key={`program-${index}`}
-            className="flex flex-col justify-center h-48 w-full bg-gradient-to-br from-orange to-pink rounded-3xl mb-4"
+            class={
+              ((index + 1) % 3 === 0 && (index + 1) % 2 === 1) ||
+              (index - 1) % 3 === 1
+                ? "flex flex-col justify-center h-48 w-full rounded-3xl mb-4 bg-gradient-to-br from-orange to-pink"
+                : "flex flex-col justify-center h-48 w-full rounded-3xl mb-4 bg-gradient-to-br from-greenblue to-seablue"
+            }
+            // className="flex flex-col justify-center h-48 w-full rounded-3xl mb-4"
           >
             <h2 className="ml-12">{program.name}</h2>
-          </NavLink>
+          </Link>
         ))}
       </div>
     </DefaultLayout>
