@@ -17,6 +17,7 @@ const PROGRAMS = gql`
 
 export default function browse() {
   const { data, loading, error } = useQuery(PROGRAMS);
+  console.log(data)
 
   if (loading) {
     return <h2>Loading, take your supps... </h2>;
@@ -27,21 +28,23 @@ export default function browse() {
 
   const { programs } = data;
 
+  const backgroundColors = [
+    "bg-gradient-to-br from-orange to-pink",
+    "bg-gradient-to-br from-greenblue to-seablue",
+    "bg-gradient-to-br from-cyan to-yellowgreen",
+  ];
+
   return (
     <DefaultLayout>
       <div className="mb-20 flex-col justify-center">
         <h2 className="mb-12 mt-14">Browse</h2>
         {programs.map((program, index) => (
           <Link
-            to={`/exercise/`} // ${program.id}
+            to={`/exercise/${program.id}`}
             key={`program-${index}`}
-            className={
-              ((index + 1) % 3 === 0 && (index + 1) % 2 === 1) ||
-              (index - 1) % 3 === 1
-                ? "flex flex-col justify-center h-48 w-full rounded-3xl mb-4 bg-gradient-to-br from-orange to-pink"
-                : "flex flex-col justify-center h-48 w-full rounded-3xl mb-4 bg-gradient-to-br from-greenblue to-seablue"
-            }
-            // className="flex flex-col justify-center h-48 w-full rounded-3xl mb-4"
+            className={`flex flex-col justify-center h-48 w-full rounded-3xl mb-4 ${
+              backgroundColors[index % backgroundColors.length]
+            }`}
           >
             <h2 className="ml-12">{program.name}</h2>
           </Link>

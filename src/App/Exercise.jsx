@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import figpie, { ReactComponent as PieIcon } from "../images/figpie.svg";
 import close, { ReactComponent as Close } from "../images/close.svg";
 
@@ -16,8 +16,23 @@ const PROGRAMS = gql`
 `;
 
 export default function Exercise() {
-  // navigate to use on close button to get back to previous page
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  const { data, loading, error } = useQuery(PROGRAMS, {
+    variables: { id },
+  });
+  console.log(data);
+
+  if (loading) {
+    return <h2>Loading, take your supps... </h2>;
+  }
+  if (error) {
+    return <h2>Something went wrong...</h2>;
+  }
+
+  const { program } = data;
+
   return (
     <>
       <button onClick={() => navigate(-1)} className="fixed top-5 right-5">

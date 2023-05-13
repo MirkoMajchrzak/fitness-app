@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-    path: "/exercise",
+    path: "/exercise/:id",
     element: <Exercise />,
   },
 ]);
@@ -42,7 +42,7 @@ const client = new ApolloClient({
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}></RouterProvider>
     </ApolloProvider>
   </React.StrictMode>
 );
