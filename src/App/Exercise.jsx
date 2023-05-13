@@ -29,7 +29,7 @@ export default function Exercise() {
         </div>
         <div className="flex justify-around">
           <div className="flex flex-col items-center">
-            <div className="w-5 h-6 bg-greybg rounded-full"></div>
+            <div className="w-6 h-6 bg-greybg rounded-full"></div>
             <p className="mb-4 mt-2 text-center uppercase">Kraft</p>
           </div>
           <div className="flex flex-col items-center">
