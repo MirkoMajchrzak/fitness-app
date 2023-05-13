@@ -35,7 +35,7 @@ export default function browse() {
           <Link
             to={`/exercise/`} // ${program.id}
             key={`program-${index}`}
-            class={
+            className={
               ((index + 1) % 3 === 0 && (index + 1) % 2 === 1) ||
               (index - 1) % 3 === 1
                 ? "flex flex-col justify-center h-48 w-full rounded-3xl mb-4 bg-gradient-to-br from-orange to-pink"
