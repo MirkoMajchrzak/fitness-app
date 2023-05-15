@@ -16,10 +16,10 @@ const PROGRAMS = gql`
 `;
 
 export default function Exercise() {
-  //Close Button Function
-  const navigate = useNavigate ();
-  const routeChange = () =>{ 
-    let path = `/browse`; 
+  // Close Button Function
+  const navigate = useNavigate();
+  const routeChange = () => {
+    const path = `/browse`;
     navigate(path);
   };
   const { id } = useParams();
