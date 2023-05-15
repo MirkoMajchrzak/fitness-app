@@ -16,7 +16,12 @@ const PROGRAMS = gql`
 `;
 
 export default function Exercise() {
-  const navigate = useNavigate();
+  //Close Button Function
+  const navigate = useNavigate ();
+  const routeChange = () =>{ 
+    let path = `/browse`; 
+    navigate(path);
+  };
   const { id } = useParams();
 
   const { data, loading, error } = useQuery(PROGRAMS, {
@@ -35,7 +40,7 @@ export default function Exercise() {
 
   return (
     <>
-      <button onClick={() => navigate(-1)} className="fixed top-5 right-5">
+      <button onClick={routeChange} className="fixed top-5 right-5">
         <Close />
       </button>
       <div className="h-[75vh] bg-gradient-to-br from-orange to-pink flex flex-col justify-between">
