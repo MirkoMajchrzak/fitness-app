@@ -28,6 +28,7 @@ export default function browse() {
 
   const { programs } = data;
 
+  //Background Colors implemented
   const backgroundColors = [
     "bg-gradient-to-br from-orange to-pink",
     "bg-gradient-to-br from-greenblue to-seablue",
@@ -43,6 +44,7 @@ export default function browse() {
             to={`/exercise/${program.id}`}
             key={`program-${index}`}
             className={`flex flex-col justify-center h-48 w-full rounded-3xl mb-4 ${
+              //Change Background Color every time, lenght to repeat after reaching the given number of colors
               backgroundColors[index % backgroundColors.length]
             }`}
           >
