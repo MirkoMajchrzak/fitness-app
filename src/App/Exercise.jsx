@@ -5,7 +5,7 @@ import close, { ReactComponent as Close } from "../images/close.svg";
 
 const PROGRAM = gql`
   query Program($id: ID!) {
-    program(where: {id: $id}) {
+    program(where: { id: $id }) {
       id
       name
       description
@@ -57,22 +57,24 @@ export default function Exercise() {
         <div className="flex justify-around">
           <div className="flex flex-col items-center">
             <div className="w-6 h-6 bg-greybg rounded-full"></div>
-            <p className="mb-4 mt-2 text-center uppercase">Kraft</p>
+            <p className="mb-4 mt-2 text-center uppercase">{program.focus}</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-6 h-6 bg-greybg rounded-full"></div>
-            <p className="mb-4 mt-2 text-center uppercase">Kraft</p>
+            <p className="mb-4 mt-2 text-center uppercase">
+              {program.difficulty}
+            </p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-6 h-6 bg-greybg rounded-full"></div>
-            <p className="mb-4 mt-2 text-center uppercase">Kraft</p>
+            <p className="mb-4 mt-2 text-center uppercase">
+              {program.duration} Wochen
+            </p>
           </div>
         </div>
       </div>
       <div className="bg-greybg">
-        <p className="px-6 py-5">
-          {program.description}
-        </p>
+        <p className="px-6 py-5">{program.description}</p>
       </div>
       <div className="px-6 mt-6">
         <h3>So ist das Programm aufgeteilt:</h3>
@@ -80,7 +82,7 @@ export default function Exercise() {
           <div className="">
             <PieIcon />
           </div>
-          <div className="ml-8 flex flex-col gap-5">
+          <div className="ml-6 flex flex-col gap-5">
             <div className="flex">
               <div className="bg-greybg h-3 w-3 rounded-full mr-3"></div>
               <p className="text-xs">Krafttraining</p>
@@ -104,14 +106,40 @@ export default function Exercise() {
         <h3>21 Tage</h3>
         <p className="text-xs">Alle anzeigen</p>
       </div>
-      <div className="bg-greybg px-6 w-full rounded-3xl">
-        <div className="bg-gradient-to-br from-orange to-pink w-1/4 rounded-l-3xl">.</div>
-        <div className="">
-        <h3>Tag 1</h3>
-        <p className="text-xs">26 Min.</p>
-        <p className="text-xs">Beweglichkeit</p>
+      <div className="mb-24">
+        <div className="mx-5 my-4">
+          <div className="bg-gradient-to-br from-orange to-pink w-full rounded-3xl drop-shadow-md">
+            <div className="bg-greybg rounded-r-3xl ml-[80px] z-10">
+              <div className="ml-3.5 py-2.5">
+                <h3>Tag 1</h3>
+                <p className="text-xs mt-6">26 Min.</p>
+                <p className="text-xs">Beweglichkeit</p>
+              </div>
+            </div>
+          </div>
         </div>
-
+        <div className="mx-5 my-4">
+          <div className="bg-gradient-to-br from-greenblue to-seablue w-full rounded-3xl drop-shadow-md">
+            <div className="bg-greybg rounded-r-3xl ml-[80px]">
+              <div className="ml-3.5 py-2.5">
+                <h3>Tag 1</h3>
+                <p className="text-xs mt-6">26 Min.</p>
+                <p className="text-xs">Beweglichkeit</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mx-5 my-4">
+          <div className="bg-gradient-to-br from-cyan to-yellowgreen w-full rounded-3xl drop-shadow-md">
+            <div className="bg-greybg rounded-r-3xl ml-[80px]">
+              <div className="ml-3.5 py-2.5">
+                <h3>Tag 1</h3>
+                <p className="text-xs mt-6">26 Min.</p>
+                <p className="text-xs">Beweglichkeit</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
