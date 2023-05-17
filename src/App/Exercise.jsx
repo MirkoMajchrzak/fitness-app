@@ -3,14 +3,21 @@ import { useNavigate, useParams } from "react-router-dom";
 import figpie, { ReactComponent as PieIcon } from "../images/figpie.svg";
 import close, { ReactComponent as Close } from "../images/close.svg";
 
-const PROGRAMS = gql`
-  query Programs {
-    programs {
+const PROGRAM = gql`
+  query Program($id: ID!) {
+    program(where: {id: $id}) {
       id
       name
+      description
       focus
       duration
       difficulty
+      workouts {
+        category
+      }
+      image {
+        url
+      }
     }
   }
 `;
@@ -24,7 +31,7 @@ export default function Exercise() {
   };
   const { id } = useParams();
 
-  const { data, loading, error } = useQuery(PROGRAMS, {
+  const { data, loading, error } = useQuery(PROGRAM, {
     variables: { id },
   });
   console.log(data);
@@ -45,7 +52,7 @@ export default function Exercise() {
       </button>
       <div className="h-[75vh] bg-gradient-to-br from-orange to-pink flex flex-col justify-between">
         <div className="pt-[25vh]">
-          <h1 className="text-center">Titel des Programms</h1>
+          <h1 className="text-center">{program.name}</h1>
         </div>
         <div className="flex justify-around">
           <div className="flex flex-col items-center">
@@ -64,12 +71,7 @@ export default function Exercise() {
       </div>
       <div className="bg-greybg">
         <p className="px-6 py-5">
-          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
-          Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
-          Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.
-          Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt
-          sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in
-          dem einem gebratene Satzteile in den Mund fliegen.
+          {program.description}
         </p>
       </div>
       <div className="px-6 mt-6">
@@ -97,6 +99,19 @@ export default function Exercise() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="mt-14 px-6 flex justify-between items-baseline">
+        <h3>21 Tage</h3>
+        <p className="text-xs">Alle anzeigen</p>
+      </div>
+      <div className="bg-greybg px-6 w-full rounded-3xl">
+        <div className="bg-gradient-to-br from-orange to-pink w-1/4 rounded-l-3xl">.</div>
+        <div className="">
+        <h3>Tag 1</h3>
+        <p className="text-xs">26 Min.</p>
+        <p className="text-xs">Beweglichkeit</p>
+        </div>
+
       </div>
     </>
   );
