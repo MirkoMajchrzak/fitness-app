@@ -109,7 +109,7 @@ export default function Exercise() {
       <div className="mb-24">
         <div className="mx-5 my-4">
           <div className="bg-gradient-to-br from-orange to-pink w-full rounded-3xl drop-shadow-md">
-            <div className="bg-greybg rounded-r-3xl ml-[80px] z-10">
+            <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px] z-10">
               <div className="ml-3.5 py-2.5">
                 <h3>Tag 1</h3>
                 <p className="text-xs mt-6">26 Min.</p>
@@ -120,7 +120,7 @@ export default function Exercise() {
         </div>
         <div className="mx-5 my-4">
           <div className="bg-gradient-to-br from-greenblue to-seablue w-full rounded-3xl drop-shadow-md">
-            <div className="bg-greybg rounded-r-3xl ml-[80px]">
+            <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px]">
               <div className="ml-3.5 py-2.5">
                 <h3>Tag 1</h3>
                 <p className="text-xs mt-6">26 Min.</p>
@@ -131,7 +131,7 @@ export default function Exercise() {
         </div>
         <div className="mx-5 my-4">
           <div className="bg-gradient-to-br from-cyan to-yellowgreen w-full rounded-3xl drop-shadow-md">
-            <div className="bg-greybg rounded-r-3xl ml-[80px]">
+            <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px]">
               <div className="ml-3.5 py-2.5">
                 <h3>Tag 1</h3>
                 <p className="text-xs mt-6">26 Min.</p>
