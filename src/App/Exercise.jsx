@@ -51,7 +51,13 @@ export default function Exercise() {
       <button onClick={routeChange} className="fixed top-5 right-5">
         <Close />
       </button>
-      <div className="h-[75vh] bg-gradient-to-br from-orange to-pink flex flex-col justify-between">
+      <div
+        style={{
+          backgroundImage: `url(${program.image.url})`,
+          backgroundSize: "cover",
+        }}
+        className="h-[75vh] flex flex-col justify-between"
+      >
         <div className="pt-[25vh]">
           <h1 className="text-center">{program.name}</h1>
         </div>
