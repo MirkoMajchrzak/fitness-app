@@ -80,11 +80,13 @@ export default function Exercise() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
-        <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-md z-[12]">
-          <p>Los geht´s!!!</p>
-        </button>
-      </div>
+      <NavLink to="/workout">
+        <div className="flex justify-center">
+          <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-md z-[12]">
+            <p className="text-black">Los geht´s!!!</p>
+          </button>
+        </div>
+      </NavLink>
       <div className="bg-greybg">
         <p className="px-6 py-5">{program.description}</p>
       </div>
