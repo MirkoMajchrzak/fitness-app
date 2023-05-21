@@ -13,11 +13,13 @@ const PROGRAM = gql`
       focus
       duration
       difficulty
-      workouts {
-        category
-      }
       image {
         url
+      }
+      workouts {
+        id
+        duration
+        category
       }
     }
   }
@@ -80,7 +82,7 @@ export default function Exercise() {
           </div>
         </div>
       </div>
-      <NavLink to="/workout">
+      <NavLink to={`/workout/${id}`}>
         <div className="flex justify-center">
           <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-md z-[12]">
             <p className="text-black">Los geht´s!!!</p>
@@ -126,8 +128,8 @@ export default function Exercise() {
             <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px] z-10">
               <div className="ml-3.5 py-2.5">
                 <h3>Tag 1</h3>
-                <p className="text-xs mt-6">26 Min.</p>
-                <p className="text-xs">Beweglichkeit</p>
+                <p className="text-xs mt-6">{program.workouts[0].duration} Min.</p>
+                <p className="text-xs">{program.workouts[0].category}</p>
               </div>
             </div>
           </div>
