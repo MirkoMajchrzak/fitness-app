@@ -1,56 +1,29 @@
-import { useQuery, gql } from "@apollo/client";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
-import close, { ReactComponent as Close } from "../images/close.svg";
+import React from "react";
+import backbtn, { ReactComponent as Backbtn } from "../images/backbtn.svg";
 
-const PROGRAM = gql`
-  query Program($id: ID!) {
-    program(where: { id: $id }) {
-      id
-      name
-      description
-      focus
-      duration
-      difficulty
-      workouts {
-        category
-      }
-      image {
-        url
-      }
-    }
-  }
-`;
 function Workout() {
+  // Close Button Function
   const navigate = useNavigate();
   const routeChange = () => {
-    const path = `/exercise/:id`;
+    const path = `/workout`;
     navigate(path);
   };
-  const { id } = useParams();
-
-  const { data, loading, error } = useQuery(PROGRAM, {
-    variables: { id },
-  });
-  console.log(data);
-
-  if (loading) {
-    return <h2>Loading, take your supps... </h2>;
-  }
-  if (error) {
-    return <h2>Something went wrong...</h2>;
-  }
-
-  const { program } = data;
-
   return (
     <>
       <button onClick={routeChange} className="fixed top-5 right-5">
-        <Close />
+        <Backbtn />
       </button>
-      <div className=""></div>
-      <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-md z-[12]">
-        <p>los!</p>
-      </button>
+      <div>
+        <p className="text-xs text-center">Titel des Programms</p>
+        <div className="">
+          <h1>Tag 1</h1>
+          <p className="text-xs">26 Min. · Kraft und Koordination</p>
+        </div>
+
+        <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-md z-[12]">
+          <p>los!</p>
+        </button>
+      </div>
     </>
   );
 }
