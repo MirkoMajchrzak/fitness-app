@@ -55,7 +55,7 @@ function Workout() {
           <p className="text-xs">{program.duration} Min. · Kraft und Koordination</p>
         </div>
         <div className="w-screen flex justify-center">
-          <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-md z-[12]">
+          <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
             <p className="text-black">los!</p>
           </button>
         </div>

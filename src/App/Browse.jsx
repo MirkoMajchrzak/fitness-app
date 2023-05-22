@@ -43,7 +43,7 @@ export default function browse() {
           <Link
             to={`/exercise/${program.id}`}
             key={`program-${index}`}
-            className={`flex flex-col justify-center h-48 w-full rounded-3xl mb-4 ${
+            className={`flex flex-col justify-center h-48 w-full rounded-3xl mb-4 shadow-lg shadow-black ${
               // Change Background Color every time, lenght to repeat after reaching the given number of colors
               backgroundColors[index % backgroundColors.length]
             }`}

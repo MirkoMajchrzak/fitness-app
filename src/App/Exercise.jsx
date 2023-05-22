@@ -91,7 +91,7 @@ export default function Exercise() {
       </div>
       <NavLink to={`/workout/${id}`}>
         <div className="flex justify-center">
-          <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-md z-[12]">
+          <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
             <p className="text-black">Los geht´s!!!</p>
           </button>
         </div>
@@ -136,7 +136,7 @@ export default function Exercise() {
               <div
                 className={`${
                   backgroundColors[index % backgroundColors.length]
-                } w-full rounded-3xl drop-shadow-md`}
+                } w-full rounded-3xl shadow-lg shadow-black`}
               >
                 <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px] z-10">
                   <div className="ml-3.5 py-2.5">
