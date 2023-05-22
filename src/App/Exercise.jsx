@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import figpie, { ReactComponent as PieIcon } from "../images/figpie.svg";
 import close, { ReactComponent as Close } from "../images/close.svg";
 import Exbutton from "../components/Exbutton";
@@ -47,6 +48,12 @@ export default function Exercise() {
   }
 
   const { program } = data;
+
+  const backgroundColors = [
+    "bg-gradient-to-br from-orange to-pink",
+    "bg-gradient-to-br from-greenblue to-seablue",
+    "bg-gradient-to-br from-cyan to-yellowgreen",
+  ];
 
   return (
     <>
@@ -123,39 +130,25 @@ export default function Exercise() {
         <p className="text-xs">Alle anzeigen</p>
       </div>
       <div className="mb-24">
-        <div className="mx-5 my-4">
-          <div className="bg-gradient-to-br from-orange to-pink w-full rounded-3xl drop-shadow-md">
-            <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px] z-10">
-              <div className="ml-3.5 py-2.5">
-                <h3>Tag 1</h3>
-                <p className="text-xs mt-6">{program.workouts[0].duration} Min.</p>
-                <p className="text-xs">{program.workouts[0].category}</p>
+        {program.workouts.map((workout, index) => (
+          <div key={`program-${index}`} className="mb-2">
+            <div className="mx-5 my-4">
+              <div
+                className={`${
+                  backgroundColors[index % backgroundColors.length]
+                } w-full rounded-3xl drop-shadow-md`}
+              >
+                <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px] z-10">
+                  <div className="ml-3.5 py-2.5">
+                    <h3>Tag {index + 1}</h3>
+                    <p className="text-xs mt-6">{workout.duration} Min.</p>
+                    <p className="text-xs">{workout.category}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="mx-5 my-4">
-          <div className="bg-gradient-to-br from-greenblue to-seablue w-full rounded-3xl drop-shadow-md">
-            <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px]">
-              <div className="ml-3.5 py-2.5">
-                <h3>Tag 1</h3>
-                <p className="text-xs mt-6">26 Min.</p>
-                <p className="text-xs">Beweglichkeit</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mx-5 my-4">
-          <div className="bg-gradient-to-br from-cyan to-yellowgreen w-full rounded-3xl drop-shadow-md">
-            <div className="bg-greybg bg-opacity-80 rounded-r-3xl ml-[80px]">
-              <div className="ml-3.5 py-2.5">
-                <h3>Tag 1</h3>
-                <p className="text-xs mt-6">26 Min.</p>
-                <p className="text-xs">Beweglichkeit</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );
