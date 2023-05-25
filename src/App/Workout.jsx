@@ -1,8 +1,10 @@
-import React from "react";
+import { useState } from "react";
+import { createPortal } from "react-dom";
 import { useQuery, gql } from "@apollo/client";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
-import backbtn, { ReactComponent as Backbtn } from "../images/backbtn.svg";
 import { removeFragmentSpreadFromDocument } from "@apollo/client/utilities";
+import backbtn, { ReactComponent as Backbtn } from "../images/backbtn.svg";
+import Popup from "../components/Popup";
 
 const PROGRAM = gql`
   query Program($id: ID!) {
@@ -26,8 +28,9 @@ const PROGRAM = gql`
 `;
 
 function Workout() {
+  const [showModal, setShowModal] = useState(false);
   // Close Button Function
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { id } = useParams();
 
   const { data, loading, error } = useQuery(PROGRAM, {
@@ -45,14 +48,24 @@ function Workout() {
   const { program } = data;
   return (
     <>
-      <button onClick={() => navigate(-1)} className="fixed top-5 right-5">
+      <button
+        onClick={() => setShowModal(true)}
+        className="fixed top-5 right-5"
+      >
         <Backbtn />
       </button>
+      {showModal &&
+        createPortal(
+          <Popup onClose={() => setShowModal(false)} />,
+          document.body
+        )}
       <div>
         <p className="text-xs text-center pt-5">{program.name}</p>
         <div className="h-[80vh] flex flex-col justify-center items-center">
           <h1>Tag 1</h1>
-          <p className="text-xs">{program.duration} Min. · Kraft und Koordination</p>
+          <p className="text-xs">
+            {program.duration} Min. · Kraft und Koordination
+          </p>
         </div>
         <div className="w-screen flex justify-center">
           <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
