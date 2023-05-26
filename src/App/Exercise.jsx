@@ -116,7 +116,7 @@ export default function Exercise() {
         </div>
       </div>
       <div className="mt-14 px-6 flex justify-between items-baseline">
-        <h3>21 Tage</h3>
+        <h3>{`${program.duration}`*7} Tage</h3>
         <p className="text-xs">Alle anzeigen</p>
       </div>
       <div className="mb-24">
