@@ -51,7 +51,7 @@ export default function Popup({ onClose }) {
           >
             <p>Nein, weiter machen!</p>
           </button>
-          <NavLink to= {`/exercise/${id}`}>
+          <NavLink to={`/exercise/${id}`}>
             <button className="hover:bg-mainbg rounded-3xl px-6 py-3">
               <p>Ja, beenden</p>
             </button>

@@ -106,22 +106,12 @@ export default function Exercise() {
             <PieIcon />
           </div>
           <div className="ml-6 flex flex-col gap-5">
-            <div className="flex">
-              <div className="bg-greybg h-3 w-3 rounded-full mr-3"></div>
-              <p className="text-xs">Krafttraining</p>
-            </div>
-            <div className="flex">
-              <div className="bg-greybg h-3 w-3 rounded-full mr-3"></div>
-              <p className="text-xs">Koordination</p>
-            </div>
-            <div className="flex">
-              <div className="bg-greybg h-3 w-3 rounded-full mr-3"></div>
-              <p className="text-xs">Cardio</p>
-            </div>
-            <div className="flex">
-              <div className="bg-greybg h-3 w-3 rounded-full mr-3"></div>
-              <p className="text-xs">Beweglichkeit</p>
-            </div>
+            {program.workouts.map((workout, index) => (
+              <div key={`program-${index}`} className="flex">
+                <div className="bg-greybg h-3 w-3 rounded-full mr-3"></div>
+                <p className="text-xs">{workout.category}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
