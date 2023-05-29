@@ -64,7 +64,7 @@ function Workout() {
         <div className="h-[80vh] flex flex-col justify-center items-center">
           <h1>Tag 1</h1>
           <p className="text-xs">
-            {program.duration} Min. · Kraft und Koordination
+            {program.workouts[0].duration} Min. · {program.workouts[0].category}
           </p>
         </div>
         <div className="w-screen flex justify-center">
