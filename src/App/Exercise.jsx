@@ -55,7 +55,7 @@ export default function Exercise() {
     "bg-gradient-to-br from-cyan to-yellowgreen",
   ];
 
-/*   const workoutData = program.workouts.reduce(
+  /*   const workoutData = program.workouts.reduce(
     (acc, workout) => {
       console.log("ACC", acc);
       console.log("workout.category", workout.category);
@@ -88,28 +88,31 @@ export default function Exercise() {
     mobility: "Mobilitätstraining",
   }; */
 
-  //console.log("CATEGORIES", workoutData, pieChartData);
+  // console.log("CATEGORIES", workoutData, pieChartData);
 
-  const workoutData = program.workouts.reduce((acc, workout) => {
-    acc.categories = acc.categories.includes(workout.category)
-      ? acc.categories
-      : [...acc.categories, workout.category];
+  const workoutData = program.workouts.reduce(
+    (acc, workout) => {
+      acc.categories = acc.categories.includes(workout.category)
+        ? acc.categories
+        : [...acc.categories, workout.category];
 
-    acc.pieData[workout.category] = (acc.pieData[workout.category] || 0) + 1;
+      acc.pieData[workout.category] = (acc.pieData[workout.category] || 0) + 1;
 
-    acc.total++;
+      acc.total++;
 
-    return acc;
-  }, { categories: [], pieData: {}, total: 0 });
+      return acc;
+    },
+    { categories: [], pieData: {}, total: 0 }
+  );
 
-const pieChartData = workoutData.categories.map((category) => ({
-  [category]: workoutData.pieData[category] / workoutData.total,
-}));
+  const pieChartData = workoutData.categories.map((category) => ({
+    [category]: workoutData.pieData[category] / workoutData.total,
+  }));
 
-const workoutCategoryLabels = {
-  weightTraining: "Krafttraining",
-  mobility: "Mobilitätstraining",
-};
+  const workoutCategoryLabels = {
+    weightTraining: "Krafttraining",
+    mobility: "Mobilitätstraining",
+  };
 
   return (
     <>
