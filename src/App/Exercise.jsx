@@ -55,6 +55,62 @@ export default function Exercise() {
     "bg-gradient-to-br from-cyan to-yellowgreen",
   ];
 
+/*   const workoutData = program.workouts.reduce(
+    (acc, workout) => {
+      console.log("ACC", acc);
+      console.log("workout.category", workout.category);
+      const existingCategory = acc.categories.find(
+        (category) => category === workout.category
+      );
+      const updatedCategories = existingCategory
+        ? acc.categories
+        : [...acc.categories, workout.category];
+      return {
+        categories: updatedCategories,
+        pieData: {
+          ...acc.pieData,
+          [workout.category]: acc.pieData[workout.category]
+            ? acc.pieData[workout.category] + 1
+            : 1,
+        },
+        total: acc.total + 1,
+      };
+    },
+    { categories: [], pieData: {}, total: 0 }
+  );
+
+  const pieChartData = workoutData.categories.map((category) => ({
+    [category]: workoutData.pieData[category] / workoutData.total,
+  }));
+
+  const workoutCategoryLabels = {
+    weightTraining: "Krafttraining",
+    mobility: "Mobilitätstraining",
+  }; */
+
+  //console.log("CATEGORIES", workoutData, pieChartData);
+
+  const workoutData = program.workouts.reduce((acc, workout) => {
+    acc.categories = acc.categories.includes(workout.category)
+      ? acc.categories
+      : [...acc.categories, workout.category];
+
+    acc.pieData[workout.category] = (acc.pieData[workout.category] || 0) + 1;
+
+    acc.total++;
+
+    return acc;
+  }, { categories: [], pieData: {}, total: 0 });
+
+const pieChartData = workoutData.categories.map((category) => ({
+  [category]: workoutData.pieData[category] / workoutData.total,
+}));
+
+const workoutCategoryLabels = {
+  weightTraining: "Krafttraining",
+  mobility: "Mobilitätstraining",
+};
+
   return (
     <>
       <button onClick={routeChange} className="fixed top-5 right-5">
@@ -106,17 +162,19 @@ export default function Exercise() {
             <PieIcon />
           </div>
           <div className="ml-6 flex flex-col gap-5">
-            {program.workouts.map((workout, index) => (
+            {pieChartData.map((category, index) => (
               <div key={`program-${index}`} className="flex">
                 <div className="bg-greybg h-3 w-3 rounded-full mr-3"></div>
-                <p className="text-xs">{workout.category}</p>
+                <p className="text-xs">
+                  {workoutCategoryLabels[Object.keys(category)[0]]}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
       <div className="mt-14 px-6 flex justify-between items-baseline">
-        <h3>{`${program.duration}`*7} Tage</h3>
+        <h3>{`${program.duration}` * 7} Tage</h3>
         <p className="text-xs">Alle anzeigen</p>
       </div>
       <div className="mb-24">
