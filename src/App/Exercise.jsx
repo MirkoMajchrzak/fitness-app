@@ -1,7 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import figpie, { ReactComponent as PieIcon } from "../images/figpie.svg";
+import { PieChart } from "react-minimal-pie-chart";
 import close, { ReactComponent as Close } from "../images/close.svg";
 import Exbutton from "../components/Exbutton";
 
@@ -38,7 +38,6 @@ export default function Exercise() {
   const { data, loading, error } = useQuery(PROGRAM, {
     variables: { id },
   });
-  console.log(data);
 
   if (loading) {
     return <h2>Loading, take your supps... </h2>;
@@ -54,41 +53,6 @@ export default function Exercise() {
     "bg-gradient-to-br from-greenblue to-seablue",
     "bg-gradient-to-br from-cyan to-yellowgreen",
   ];
-
-  /*   const workoutData = program.workouts.reduce(
-    (acc, workout) => {
-      console.log("ACC", acc);
-      console.log("workout.category", workout.category);
-      const existingCategory = acc.categories.find(
-        (category) => category === workout.category
-      );
-      const updatedCategories = existingCategory
-        ? acc.categories
-        : [...acc.categories, workout.category];
-      return {
-        categories: updatedCategories,
-        pieData: {
-          ...acc.pieData,
-          [workout.category]: acc.pieData[workout.category]
-            ? acc.pieData[workout.category] + 1
-            : 1,
-        },
-        total: acc.total + 1,
-      };
-    },
-    { categories: [], pieData: {}, total: 0 }
-  );
-
-  const pieChartData = workoutData.categories.map((category) => ({
-    [category]: workoutData.pieData[category] / workoutData.total,
-  }));
-
-  const workoutCategoryLabels = {
-    weightTraining: "Krafttraining",
-    mobility: "Mobilitätstraining",
-  }; */
-
-  // console.log("CATEGORIES", workoutData, pieChartData);
 
   const workoutData = program.workouts.reduce(
     (acc, workout) => {
@@ -108,6 +72,8 @@ export default function Exercise() {
   const pieChartData = workoutData.categories.map((category) => ({
     [category]: workoutData.pieData[category] / workoutData.total,
   }));
+
+  const singleValues = pieChartData.map((data) => Object.values(data)[0]); //to get the values out of the pieChartData
 
   const workoutCategoryLabels = {
     weightTraining: "Krafttraining",
@@ -162,7 +128,16 @@ export default function Exercise() {
         <h3>So ist das Programm aufgeteilt:</h3>
         <div className="flex items-center mt-10">
           <div className="">
-            <PieIcon />
+            <PieChart
+              data={singleValues.map((value, index) => ({
+                title: `Data ${index + 1}`,
+                value: value * 100, // Multiply by 100 to get the percent value
+                color: "#3a4151",
+              }))}
+              segmentsShift={
+                (index) => (index === singleValues.length - 1 ? 0 : 0.5) // to get a gap between the values, doesnt look nice yet
+              }
+            />
           </div>
           <div className="ml-6 flex flex-col gap-5">
             {pieChartData.map((category, index) => (
