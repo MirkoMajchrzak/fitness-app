@@ -73,7 +73,7 @@ export default function Exercise() {
     [category]: workoutData.pieData[category] / workoutData.total,
   }));
 
-  const singleValues = pieChartData.map((data) => Object.values(data)[0]); //to get the values out of the pieChartData
+  const singleValues = pieChartData.map((data) => Object.values(data)[0]); // to get the values out of the pieChartData
 
   const workoutCategoryLabels = {
     weightTraining: "Krafttraining",
