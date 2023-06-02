@@ -27,7 +27,7 @@ function Swipe() {
       <div className="swiper-pagination"></div>
 
       {/* <!-- If we need navigation buttons --> */}
-      <div className="swiper-button-prev mt-5"></div>
+      <div className="swiper-button-prev"></div>
       <div className="swiper-button-next"></div>
 
       {/* <!-- If we need scrollbar --> */}
