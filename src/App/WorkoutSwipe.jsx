@@ -3,6 +3,7 @@ import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.css";
 import "swiper/swiper-bundle.css";
+import ExcwithTime from "../components/ExcwithTime";
 
 function WorkoutSwipe() {
   return (
@@ -13,15 +14,14 @@ function WorkoutSwipe() {
         spaceBetween={50}
         slidesPerView={1}
         navigation
-        pagination={{ clickable: true }}
+        pagination={{ clickable: false }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        ...
+        <SwiperSlide><ExcwithTime /></SwiperSlide>
+        <SwiperSlide>Übung 2</SwiperSlide>
+        <SwiperSlide>Übung 3</SwiperSlide>
+        <SwiperSlide>Übung 4</SwiperSlide>
       </Swiper>
     </div>
   );

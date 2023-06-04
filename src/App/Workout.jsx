@@ -68,11 +68,11 @@ function Workout() {
           </p>
         </div>
         <div className="w-screen flex justify-center">
-        {/* <NavLink to={``}> */}
-          <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
-            <p className="text-black">los!</p>
-          </button>
-          {/* </NavLink> */}
+          <NavLink to={`/exercise/workout/${id}/training`}>
+            <button className="relative bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
+              <p className="text-black">los!</p>
+            </button>
+          </NavLink>
         </div>
       </div>
     </>

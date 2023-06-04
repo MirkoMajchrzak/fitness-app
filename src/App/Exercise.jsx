@@ -141,7 +141,8 @@ export default function Exercise() {
               data={singleValues.map((value, index) => ({
                 title: `Data ${index + 1}`,
                 value: value * 100, // Multiply by 100 to get the percent value
-                color: workoutCategoryColors[Object.keys(pieChartData[index])[0]],
+                color:
+                  workoutCategoryColors[Object.keys(pieChartData[index])[0]],
               }))}
               segmentsShift={
                 (index) => (index === singleValues.length - 1 ? 0 : 0.2) // to get a gap between the values, doesnt look nice yet
@@ -151,10 +152,13 @@ export default function Exercise() {
           <div className="ml-6 flex flex-col gap-5">
             {pieChartData.map((category, index) => (
               <div key={`program-${index}`} className="flex">
-                <div className="h-3 w-3 rounded-full mr-3"
-                style={{
-                  backgroundColor: workoutCategoryColors[Object.keys(category)[0]],
-                }}></div>
+                <div
+                  className="h-3 w-3 rounded-full mr-3"
+                  style={{
+                    backgroundColor:
+                      workoutCategoryColors[Object.keys(category)[0]],
+                  }}
+                ></div>
                 <p className="text-xs">
                   {workoutCategoryLabels[Object.keys(category)[0]]}
                 </p>
