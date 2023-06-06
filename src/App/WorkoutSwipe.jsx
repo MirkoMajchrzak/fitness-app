@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.css";
 import "swiper/swiper-bundle.css";
 import ExcwithTime from "../components/ExcwithTime";
+import ExcwithReps from "../components/ExcwithReps";
 
 function WorkoutSwipe() {
   return (
@@ -19,7 +20,7 @@ function WorkoutSwipe() {
         onSlideChange={() => console.log("slide change")}
       >
         <SwiperSlide><ExcwithTime /></SwiperSlide>
-        <SwiperSlide>Übung 2</SwiperSlide>
+        <SwiperSlide><ExcwithReps /></SwiperSlide>
         <SwiperSlide>Übung 3</SwiperSlide>
         <SwiperSlide>Übung 4</SwiperSlide>
       </Swiper>
