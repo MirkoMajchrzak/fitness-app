@@ -13,6 +13,7 @@
     "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-circular-progressbar": "^2.1.0",
+    "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "^18.2.0",
     "react-minimal-pie-chart": "^8.4.0",
     "react-router-dom": "^6.10.0",
