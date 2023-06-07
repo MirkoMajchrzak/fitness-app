@@ -14,6 +14,7 @@ import Profile from "./App/Profile";
 import Exercise from "./App/Exercise";
 import Workout from "./App/Workout";
 import WorkoutSwipe from "./App/WorkoutSwipe";
+import ExerciseEnd from "./App/ExcEnd";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/exercise/workout/:id/training",
     element: <WorkoutSwipe />,
+  },
+  {
+    path: "/exercise/workout/:id/training/end",
+    element: <ExerciseEnd />,
   },
 ]);
 
