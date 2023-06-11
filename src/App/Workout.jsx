@@ -30,6 +30,7 @@ const PROGRAM = gql`
         id
         duration
         category
+        completed
       }
     }
   }
@@ -82,22 +83,26 @@ function Workout() {
         <p className="text-xs text-center pt-5">{program.name}</p>
         <div className="h-[80vh] flex flex-col justify-center items-center">
           <h1>Tag 1</h1>
-          <p className="text-xs">
-            {program.workouts[0].duration} Min. · {program.workouts[0].category}
-            <button
-              onClick={async () => {
-                await setWorkoutComplete({
-                  variables: {
-                    completed: isComplete,
-                    workoutId: program.workouts[0].id,
-                  },
-                });
-                setIsComplete((oldIsComplete) => !oldIsComplete);
-              }}
-            >
-              Set Complete
-            </button>
-          </p>
+          {program.workouts.map((workout) => (
+            <p key={workout.id} className="text-xs">
+              {workout.duration} Min. · {workout.category}
+              {!workout.completed && (
+                <button
+                  onClick={async () => {
+                    await setWorkoutComplete({
+                      variables: {
+                        completed: isComplete,
+                        workoutId: workout.id,
+                      },
+                    });
+                    setIsComplete((oldIsComplete) => !oldIsComplete);
+                  }}
+                >
+                  Set Complete
+                </button>
+              )}
+            </p>
+          ))}
         </div>
         <div className="w-screen flex justify-center">
           <NavLink to={`/exercise/${programId}/workout/${workoutId}/training`}>
