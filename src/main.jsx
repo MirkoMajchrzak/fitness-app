@@ -36,11 +36,11 @@ const router = createBrowserRouter([
     element: <Exercise />,
   },
   {
-    path: "/exercise/workout/:id",
+    path: "/exercise/:programId/workout/:workoutId",
     element: <Workout />,
   },
   {
-    path: "/exercise/workout/:id/training",
+    path: "/exercise/:programId/workout/:workoutId/training",
     element: <WorkoutSwipe />,
   },
   {

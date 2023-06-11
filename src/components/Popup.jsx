@@ -2,8 +2,8 @@ import { NavLink, useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 
 const PROGRAM = gql`
-  query Program($id: ID!) {
-    program(where: { id: $id }) {
+  query Program($programId: ID!) {
+    program(where: { id: $programId }) {
       id
       name
       description
@@ -23,10 +23,10 @@ const PROGRAM = gql`
 `;
 
 export default function Popup({ onClose }) {
-  const { id } = useParams();
+  const { programId } = useParams();
 
   const { data, loading, error } = useQuery(PROGRAM, {
-    variables: { id },
+    variables: { programId },
   });
   console.log(data);
 
@@ -39,7 +39,7 @@ export default function Popup({ onClose }) {
 
   const { program } = data;
   return (
-    <div className="h-full w-full bg-mainbg bg-opacity-70 absolute flex justify-center top-0 left-0 z-50">
+    <div className="h-full w-full bg-mainbg bg-opacity-70 fixed flex justify-center top-0 left-0 z-50">
       <div className="mt-12 w-full h-[50%] bg-greybg rounded-3xl">
         <h3 className="text-center mt-24">
           Möchtest du das Workout wirklich beenden?
@@ -51,7 +51,7 @@ export default function Popup({ onClose }) {
           >
             <p>Nein, weiter machen!</p>
           </button>
-          <NavLink to={`/exercise/${id}`}>
+          <NavLink to={`/exercise/${program.id}`}>
             <button className="hover:bg-mainbg rounded-3xl px-6 py-3">
               <p>Ja, beenden</p>
             </button>

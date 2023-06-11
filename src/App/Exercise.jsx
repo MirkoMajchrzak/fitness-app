@@ -123,13 +123,18 @@ export default function Exercise() {
           </div>
         </div>
       </div>
-      <NavLink to={`/exercise/workout/${id}`}>
-        <div className="flex justify-center">
-          <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
-            <p className="text-black">Los geht´s!!!</p>
-          </button>
-        </div>
-      </NavLink>
+      {program.workouts.map((workout, index) => (
+        <NavLink
+          key={`workout-${index}`}
+          to={`/exercise/${id}/workout/${workout.id}`}
+        >
+          <div className="flex justify-center">
+            <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
+              <p className="text-black">Los geht´s!!!</p>
+            </button>
+          </div>
+        </NavLink>
+      ))}
       <div className="bg-greybg">
         <p className="px-6 py-5">{program.description}</p>
       </div>

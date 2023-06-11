@@ -37,7 +37,9 @@ function ExcEnd() {
           </button>
         </div>
         <div className="flex justify-center mt-6">
-        <button className="text-greybg text-center">Bewertung überspringen</button>
+          <button className="text-greybg text-center">
+            Bewertung überspringen
+          </button>
         </div>
       </>
     </>

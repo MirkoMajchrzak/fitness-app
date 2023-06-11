@@ -15,8 +15,8 @@ const SET_WORKOUT_COMPLETE = gql`
 `;
 
 const PROGRAM = gql`
-  query Program($id: ID!) {
-    program(where: { id: $id }) {
+  query Program($programId: ID!, $workoutId: ID!) {
+    program(where: { id: $programId }) {
       id
       name
       description
@@ -26,7 +26,7 @@ const PROGRAM = gql`
       image {
         url
       }
-      workouts {
+      workouts(where: { id: $workoutId }) {
         id
         duration
         category
@@ -40,10 +40,10 @@ function Workout() {
   const [isComplete, setIsComplete] = useState(false);
   // Close Button Function
   // const navigate = useNavigate();
-  const { id } = useParams();
+  const { programId, workoutId } = useParams();
 
   const { data, loading, error } = useQuery(PROGRAM, {
-    variables: { id },
+    variables: { programId, workoutId },
   });
   const [
     setWorkoutComplete,
@@ -100,7 +100,7 @@ function Workout() {
           </p>
         </div>
         <div className="w-screen flex justify-center">
-          <NavLink to={`/exercise/workout/${id}/training`}>
+          <NavLink to={`/exercise/${programId}/workout/${workoutId}/training`}>
             <button className="relative bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
               <p className="text-black">los!</p>
             </button>
