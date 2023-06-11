@@ -1,28 +1,30 @@
-import React, { useState } from "react";
-import { createPortal } from "react-dom";
+import React, { useState, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Popup from "./Popup";
 import close, { ReactComponent as Close } from "../images/close.svg";
 
-const renderTime = ({ remainingTime }) => {
-  if (remainingTime === 0) {
-    return <div className="timer">completed</div>;
-  }
-
-  return (
-    <div className="">
-      <div className="timer flex flex-col items-center justify-center">
-        <div className="text">Remaining</div>
-        <div className="value">{remainingTime}</div>
-        <div className="text">seconds</div>
-      </div>
-    </div>
-  );
-};
-
-function ExcwithTime() {
-  const [isPlaying, setIsPlaying] = useState(true);
+function ExcwithTime({ isPaused }) {
   const [showModal, setShowModal] = useState(false);
+  const [timerPaused, setTimerPaused] = useState(false);
+  const handlePauseResume = () => {
+    setTimerPaused((prev) => !prev);
+  };
+
+  const renderTime = ({ remainingTime }) => {
+    if (remainingTime === 0) {
+      return <div className="timer">completed</div>;
+    }
+
+    return (
+      <div className="" onClick={handlePauseResume}>
+        <div className="timer flex flex-col items-center justify-center">
+          <div className="text">Remaining</div>
+          <div className="value">{remainingTime}</div>
+          <div className="text">seconds</div>
+        </div>
+      </div>
+    );
+  };
   return (
     <>
       <button
@@ -31,16 +33,12 @@ function ExcwithTime() {
       >
         <Close />
       </button>
-      {showModal &&
-        createPortal(
-          <Popup onClose={() => setShowModal(false)} />,
-          document.body
-        )}
+      {showModal && <Popup onClose={() => setShowModal(false)} />}
       <div className="h-full">
         <div className="h-full flex flex-col justify-center items-center">
           <div className="flex justify-center">
             <CountdownCircleTimer
-              isPlaying={isPlaying}
+              isPlaying={!timerPaused && !isPaused} // Added condition to check both timerPaused and isPaused
               duration={30}
               colors={["#3a54e4", "#5ef3e8", "#eefea2", "#f8cf64", "#f69bc0"]}
               colorsTime={[25, 20, 12, 5, 0]}
@@ -49,7 +47,9 @@ function ExcwithTime() {
               {renderTime}
             </CountdownCircleTimer>
           </div>
-          <button onClick={() => setIsPlaying((prev) => !prev)}>Pause</button>
+          <button onClick={handlePauseResume}>
+            {timerPaused ? "Resume" : "Pause"}
+          </button>
           <h1>BlaBla</h1>
         </div>
       </div>

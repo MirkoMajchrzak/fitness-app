@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.css";
@@ -7,6 +7,14 @@ import ExcwithTime from "../components/ExcwithTime";
 import ExcwithReps from "../components/ExcwithReps";
 
 function WorkoutSwipe() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const handleSlideChange = (swiper) => {
+    setActiveSlide(swiper.activeIndex);
+  };
+
+  const isTimerPaused = activeSlide !== 0;
+
   return (
     <div>
       <Swiper
@@ -17,10 +25,14 @@ function WorkoutSwipe() {
         navigation
         pagination={{ clickable: false }}
         onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        onSlideChange={handleSlideChange}
       >
-        <SwiperSlide><ExcwithTime /></SwiperSlide>
-        <SwiperSlide><ExcwithReps /></SwiperSlide>
+        <SwiperSlide>
+          <ExcwithTime isPaused={isTimerPaused} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ExcwithReps />
+        </SwiperSlide>
         <SwiperSlide>Übung 3</SwiperSlide>
         <SwiperSlide>Übung 4</SwiperSlide>
       </Swiper>
