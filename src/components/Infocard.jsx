@@ -50,23 +50,21 @@ export default function Infocard({ onClose }) {
 
   const { program } = data;
   return (
-    <div className="absolute flex justify-center top-[50px] left-0 z-50">
-      <div className="w-full h-[50%] bg-greybg rounded-3xl">
-        <h3 className="text-center mt-24">
-          Möchtest du das Workout wirklich beenden?
-        </h3>
-        <div className="mt-32 mb-8 flex justify-around">
+    <div className="z-51 bg-greybg rounded-t-2xl">
+      <div className="mx-9">
+        <h1>Exercise</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non error
+          unde provident, aperiam ullam dicta culpa autem accusamus consequatur
+          veniam.
+        </p>
+        <div className="flex flex-col justify-center items-center">
           <button
             onClick={onClose}
             className="hover:bg-mainbg rounded-3xl px-6 py-3"
           >
-            <p>Nein, weiter machen!</p>
+            <p>ok!</p>
           </button>
-          <NavLink to={`/exercise/${id}`}>
-            <button className="hover:bg-mainbg rounded-3xl px-6 py-3">
-              <p>Ja, beenden</p>
-            </button>
-          </NavLink>
         </div>
       </div>
     </div>

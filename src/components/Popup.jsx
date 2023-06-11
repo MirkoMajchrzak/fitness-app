@@ -39,8 +39,8 @@ export default function Popup({ onClose }) {
 
   const { program } = data;
   return (
-    <div className="absolute flex justify-center top-[50px] left-0 z-50">
-      <div className="w-full h-[50%] bg-greybg rounded-3xl">
+    <div className="h-full w-full bg-mainbg bg-opacity-70 absolute flex justify-center top-0 left-0 z-50">
+      <div className="mt-12 w-full h-[50%] bg-greybg rounded-3xl">
         <h3 className="text-center mt-24">
           Möchtest du das Workout wirklich beenden?
         </h3>
