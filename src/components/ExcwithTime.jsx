@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-/* import Popup from "./Popup";
-import close, { ReactComponent as Close } from "../images/close.svg"; */
 
 function ExcwithTime({ isPaused }) {
-  // const [showModal, setShowModal] = useState(false);
   const [timerPaused, setTimerPaused] = useState(false);
   const handlePauseResume = () => {
     setTimerPaused((prev) => !prev);
@@ -27,15 +24,8 @@ function ExcwithTime({ isPaused }) {
   };
   return (
     <>
-      {/* <button
-        onClick={() => setShowModal(true)}
-        className="fixed top-5 right-5"
-      >
-        <Close />
-      </button>
-      {showModal && <Popup onClose={() => setShowModal(false)} />} */}
-      <div className="h-full">
-        <div className="h-full flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center">
+        <div className="h-[100vh] flex flex-col justify-center items-center">
           <div className="flex justify-center">
             <CountdownCircleTimer
               isPlaying={!timerPaused && !isPaused} // Added condition to check both timerPaused and isPaused
