@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-function ExcwithTime({ isPaused }) {
+function ExcwithTime({ isPaused, exerciseName, duration }) { //props taken by WorkoutSwipe
   const [timerPaused, setTimerPaused] = useState(false);
   const handlePauseResume = () => {
     setTimerPaused((prev) => !prev);
@@ -29,7 +29,7 @@ function ExcwithTime({ isPaused }) {
           <div className="flex justify-center">
             <CountdownCircleTimer
               isPlaying={!timerPaused && !isPaused} // Added condition to check both timerPaused and isPaused
-              duration={30}
+              duration={duration}
               colors={["#3a54e4", "#5ef3e8", "#eefea2", "#f8cf64", "#f69bc0"]}
               colorsTime={[25, 20, 12, 5, 0]}
               onComplete={() => ({ shouldRepeat: false, delay: 1 })}
@@ -40,7 +40,7 @@ function ExcwithTime({ isPaused }) {
           <button onClick={handlePauseResume}>
             {timerPaused ? "Resume" : "Pause"}
           </button>
-          <h1>BlaBla</h1>
+          <h1 className="text-center">{exerciseName}</h1>
         </div>
       </div>
     </>

@@ -58,23 +58,28 @@ function WorkoutSwipe() {
   if (error) return <p>Error: {error.message}</p>;
   console.log(data);
 
-  const { exercises } = data.program.workouts[0]; // Assuming there is only one workout in the program
+  const { exercises } = data.program.workouts[0]; // Assuming there is only one workout in the program, needs to be improved
 
   const slides = exercises.map((exercise, index) => {
+    const exerciseName = exercise.exercise.name;
+    const { duration } = exercise; // 
     if ("duration" in exercise) {
       return (
         <div key={index}>
           <ExcwithTime
             isPaused={activeSlide !== index}
-            duration={exercise.duration}
+            exerciseName={exerciseName} // Pass the name of the exercise as prop
+            duration={duration} // Pass the duration of the exercise as a prop
           />
+          <p>{exerciseName}</p> {/* Display the name of the exercise */}
         </div>
       );
     }
     if ("reps" in exercise) {
       return (
         <div key={index}>
-          <ExcwithReps reps={exercise.reps} />
+          <ExcwithReps reps={exercise.reps} exerciseName={exerciseName} />{" "}
+          {/* Pass the name of the exercise as prop */}
         </div>
       );
     }
