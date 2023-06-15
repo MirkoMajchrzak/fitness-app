@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useQuery, useMutation, gql } from "@apollo/client";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { createPortal } from "react-dom";
+import "../css/pagination.css";
 import Popup from "../components/Popup";
 import ExcwithTime from "../components/ExcwithTime";
 import ExcwithReps from "../components/ExcwithReps";
@@ -62,7 +63,7 @@ function WorkoutSwipe() {
 
   const slides = exercises.map((exercise, index) => {
     const exerciseName = exercise.exercise.name;
-    const { duration } = exercise; // 
+    const { duration } = exercise; //
     if ("duration" in exercise) {
       return (
         <div key={index}>
@@ -102,6 +103,21 @@ function WorkoutSwipe() {
     setActiveSlide((prevSlide) => prevSlide - 1);
   };
 
+  const renderPagination = () => {
+    // not really a idea how it works, found it like so, edited it and it works, i hope
+    return (
+      <div className="pagination">
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${activeSlide === index ? "active" : ""}`} // switching the css styles if slide is active
+            onClick={() => setActiveSlide(index)}
+          ></span>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div>
       <button
@@ -123,13 +139,14 @@ function WorkoutSwipe() {
           <SwipeRight />
         </button>
       </div>
-      <div className="mx-auto" style={{ width: "100%", overflow: "hidden" }}>
+      <div className="mx-auto w-[100%] overflow-hidden">
+        <div className="pagination-container">{renderPagination()}</div>
         <div
           className="flex transition-transform duration-300"
           style={{ transform: `translateX(-${activeSlide * 100}%)` }}
         >
           {slides.map((slide, index) => (
-            <div key={index} style={{ minWidth: "100%" }}>
+            <div key={index} className="min-w-full">
               {slide}
             </div>
           ))}

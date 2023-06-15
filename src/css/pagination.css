@@ -1,0 +1,48 @@
+.pagination-container {
+    position: absolute;
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .pagination {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .pagination::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 80%;
+    height: 1px;
+    background-color: #3a4151;
+    border-radius: 1px;
+    opacity: 0.5;
+    border-style: dotted; 
+  }
+
+   .dot {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 3px;
+    border-style: solid;
+    border-color: #3A4151;
+    background-color: #202430;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+  }
+  
+  .dot.active {
+    background: linear-gradient(135deg, rgba(255,209,98,1) 0%, rgba(255,153,195,1) 100%);
+  } 
+
+
+  
