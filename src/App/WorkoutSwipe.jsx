@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { createPortal } from "react-dom";
 import "../css/pagination.css";
 import Popup from "../components/Popup";
+import Infocard from "../components/Infocard";
 import ExcwithTime from "../components/ExcwithTime";
 import ExcwithReps from "../components/ExcwithReps";
 import { ReactComponent as Close } from "../images/close.svg";
@@ -47,7 +48,8 @@ const TOEXERCISE = gql`
 `;
 
 function WorkoutSwipe() {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
   const { programId, workoutId } = useParams();
   const { loading, error, data } = useQuery(TOEXERCISE, {
     variables: { programId, workoutId },
@@ -121,14 +123,14 @@ function WorkoutSwipe() {
   return (
     <div>
       <button
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal1(true)}
         className="fixed top-5 right-5 z-[499]"
       >
         <Close />
       </button>
-      {showModal &&
+      {showModal1 &&
         createPortal(
-          <Popup onClose={() => setShowModal(false)} />,
+          <Popup onClose={() => setShowModal1(false)} />,
           document.body
         )}
       <div className="fixed z-[300] top-1/2 flex justify-between px-2 w-[100vw]">
@@ -139,7 +141,7 @@ function WorkoutSwipe() {
           <SwipeRight />
         </button>
       </div>
-      <div className="mx-auto w-[100%] overflow-hidden">
+      <div className="h-[80vh] mx-auto w-[100%] overflow-hidden">
         <div className="pagination-container">{renderPagination()}</div>
         <div
           className="flex transition-transform duration-300"
@@ -151,6 +153,19 @@ function WorkoutSwipe() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="fixed z-[499] bottom-0 bg-greybg h-14 w-[100vw] rounded-t-3xl">
+        <button
+          onClick={() => setShowModal2(true)}
+          className="fixed bg-mainbg w-7 h-7 rounded-full right-0  text-center mt-4 mr-6"
+        >
+          i
+        </button>
+        {showModal2 &&
+          createPortal(
+            <Infocard onClose={() => setShowModal2(false)} />,
+            document.body
+          )}
       </div>
     </div>
   );

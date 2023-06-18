@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { useQuery, useMutation, gql } from "@apollo/client";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { removeFragmentSpreadFromDocument } from "@apollo/client/utilities";
-import backbtn, { ReactComponent as Backbtn } from "../images/backbtn.svg";
+import { ReactComponent as Backbtn } from "../images/backbtn.svg";
 import Popup from "../components/Popup";
 
 const SET_WORKOUT_COMPLETE = gql`
