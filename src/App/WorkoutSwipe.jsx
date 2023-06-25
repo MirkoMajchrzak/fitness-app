@@ -3,6 +3,7 @@ import { useQuery, useMutation, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { createPortal } from "react-dom";
 import "../css/pagination.css";
+import "../css/modal.css";
 import Popup from "../components/Popup";
 import Infocard from "../components/Infocard";
 import ExcwithTime from "../components/ExcwithTime";
@@ -139,6 +140,7 @@ function WorkoutSwipe() {
       >
         <Close />
       </button>
+
       {showModal1 &&
         createPortal(
           <Popup onClose={() => setShowModal1(false)} />,
@@ -181,19 +183,6 @@ function WorkoutSwipe() {
           ))}
         </div>
       </div>
-      {/*       <div className="fixed z-[499] bottom-0 bg-greybg h-14 w-[100vw] rounded-t-3xl">
-        <button
-          onClick={() => setShowModal2(true)}
-          className="fixed bg-mainbg w-7 h-7 rounded-full right-0  text-center mt-4 mr-6"
-        >
-          i
-        </button>
-        {showModal2 &&
-          createPortal(
-            <Infocard onClose={() => setShowModal2(false)} exercise={exercises[activeSlide]} />,
-            document.body
-          )}
-      </div> */}
     </div>
   );
 }
