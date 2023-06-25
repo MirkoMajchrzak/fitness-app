@@ -26,7 +26,7 @@ const PROGRAM = gql`
       image {
         url
       }
-      workouts(where: { id: $workoutId }) {
+      workouts(where: { id: $workoutId, completed: false }) {
         id
         duration
         category
@@ -43,7 +43,7 @@ function Workout() {
   // const navigate = useNavigate();
   const { programId, workoutId } = useParams();
 
-  const { data, loading, error } = useQuery(PROGRAM, {
+  const { data, loading, error, refetch } = useQuery(PROGRAM, {
     variables: { programId, workoutId },
   });
   const [
@@ -66,6 +66,7 @@ function Workout() {
   console.log(setWorkoutCompleteData);
 
   const { program } = data;
+  
   return (
     <>
       <button
@@ -91,10 +92,12 @@ function Workout() {
                   onClick={async () => {
                     await setWorkoutComplete({
                       variables: {
-                        completed: isComplete,
+                        completed: true,
                         workoutId: workout.id,
                       },
                     });
+                    //publish here ;)
+                    await refetch();
                     setIsComplete((oldIsComplete) => !oldIsComplete);
                   }}
                 >
@@ -106,7 +109,7 @@ function Workout() {
         </div>
         <div className="w-screen flex justify-center">
           <NavLink to={`/exercise/${programId}/workout/${workoutId}/training`}>
-            <button className="relative bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
+            <button className="bg-gradient-to-br from-orange to-pink rounded-3xl fixed px-4 py-3 bottom-8 shadow-lg shadow-black z-[12]">
               <p className="text-black">los!</p>
             </button>
           </NavLink>

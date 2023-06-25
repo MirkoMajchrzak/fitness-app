@@ -2,7 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { PieChart } from "react-minimal-pie-chart";
-import close, { ReactComponent as Close } from "../images/close.svg";
+import { ReactComponent as Close } from "../images/close.svg";
 import Exbutton from "../components/Exbutton";
 
 const PROGRAM = gql`

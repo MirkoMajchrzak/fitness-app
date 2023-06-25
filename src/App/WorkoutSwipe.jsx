@@ -29,6 +29,7 @@ const TOEXERCISE = gql`
               name
               description
               completed
+              type
             }
           }
           ... on ExerciseWithReps {
@@ -39,6 +40,7 @@ const TOEXERCISE = gql`
               name
               description
               completed
+              type
             }
           }
         }
@@ -56,6 +58,7 @@ function WorkoutSwipe() {
   });
   const [activeSlide, setActiveSlide] = useState(0);
   // const isTimerPaused = activeSlide !== 0;
+  // const [currentExercise, setCurrentExercise] = useState();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -65,14 +68,17 @@ function WorkoutSwipe() {
 
   const slides = exercises.map((exercise, index) => {
     const exerciseName = exercise.exercise.name;
-    const { duration } = exercise; //
+    const exerciseDescribtion = exercise.exercise.description;
+    const { duration } = exercise;
+    console.log(exerciseDescribtion);
     if ("duration" in exercise) {
       return (
         <div key={index}>
           <ExcwithTime
             isPaused={activeSlide !== index}
-            exerciseName={exerciseName} // Pass the name of the exercise as prop
-            duration={duration} // Pass the duration of the exercise as a prop
+            exerciseName={exerciseName}
+            duration={duration}
+            exerciseDescribtion={exerciseDescribtion} // The duration, description, Name of the exercise as a prop
           />
           <p>{exerciseName}</p> {/* Display the name of the exercise */}
         </div>
@@ -81,8 +87,12 @@ function WorkoutSwipe() {
     if ("reps" in exercise) {
       return (
         <div key={index}>
-          <ExcwithReps reps={exercise.reps} exerciseName={exerciseName} />{" "}
-          {/* Pass the name of the exercise as prop */}
+          <ExcwithReps
+            reps={exercise.reps}
+            exerciseName={exerciseName}
+            exerciseDescribtion={exerciseDescribtion}
+          />{" "}
+          {/* Pass the name, reps and descr. of the exercise as prop */}
         </div>
       );
     }
@@ -94,6 +104,7 @@ function WorkoutSwipe() {
       // Reached the last slide, do nothing
       return;
     }
+
     setActiveSlide((prevSlide) => prevSlide + 1);
   };
 
@@ -133,6 +144,22 @@ function WorkoutSwipe() {
           <Popup onClose={() => setShowModal1(false)} />,
           document.body
         )}
+      <div className="fixed z-[500] bottom-0 bg-greybg h-14 w-[100vw] rounded-t-3xl">
+        <button
+          onClick={() => setShowModal2(true)}
+          className="fixed bg-mainbg w-7 h-7 rounded-full right-0  text-center mt-4 mr-6"
+        >
+          i
+        </button>
+        {showModal2 &&
+          createPortal(
+            <Infocard
+              onClose={() => setShowModal2(false)}
+              exercise={exercises[activeSlide]}
+            />,
+            document.body
+          )}
+      </div>
       <div className="fixed z-[300] top-1/2 flex justify-between px-2 w-[100vw]">
         <button onClick={handlePrevSlide}>
           <SwipeLeft />
@@ -154,7 +181,7 @@ function WorkoutSwipe() {
           ))}
         </div>
       </div>
-      <div className="fixed z-[499] bottom-0 bg-greybg h-14 w-[100vw] rounded-t-3xl">
+      {/*       <div className="fixed z-[499] bottom-0 bg-greybg h-14 w-[100vw] rounded-t-3xl">
         <button
           onClick={() => setShowModal2(true)}
           className="fixed bg-mainbg w-7 h-7 rounded-full right-0  text-center mt-4 mr-6"
@@ -163,10 +190,10 @@ function WorkoutSwipe() {
         </button>
         {showModal2 &&
           createPortal(
-            <Infocard onClose={() => setShowModal2(false)} />,
+            <Infocard onClose={() => setShowModal2(false)} exercise={exercises[activeSlide]} />,
             document.body
           )}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 function ExcwithTime({ isPaused, exerciseName, duration }) { //props taken by WorkoutSwipe
