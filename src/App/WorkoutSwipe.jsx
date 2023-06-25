@@ -73,9 +73,11 @@ function WorkoutSwipe() {
     const { duration } = exercise;
     console.log(exerciseDescribtion);
     if ("duration" in exercise) {
+      const isLastSlide = activeSlide === exercises.length - 1;
       return (
         <div key={index}>
           <ExcwithTime
+            isLastSlide={isLastSlide}
             isPaused={activeSlide !== index}
             exerciseName={exerciseName}
             duration={duration}
@@ -86,9 +88,11 @@ function WorkoutSwipe() {
       );
     }
     if ("reps" in exercise) {
+      const isLastSlide = activeSlide === exercises.length - 1;
       return (
         <div key={index}>
           <ExcwithReps
+            isLastSlide={isLastSlide}
             reps={exercise.reps}
             exerciseName={exerciseName}
             exerciseDescribtion={exerciseDescribtion}

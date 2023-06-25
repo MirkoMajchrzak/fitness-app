@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-function ExcwithTime({ isPaused, exerciseName, duration }) { //props taken by WorkoutSwipe
+function ExcwithTime({ isPaused, exerciseName, duration, isLastSlide }) {
+  // props taken by WorkoutSwipe
   const [timerPaused, setTimerPaused] = useState(false);
   const handlePauseResume = () => {
     setTimerPaused((prev) => !prev);
@@ -41,6 +42,9 @@ function ExcwithTime({ isPaused, exerciseName, duration }) { //props taken by Wo
             {timerPaused ? "Resume" : "Pause"}
           </button>
           <h1 className="text-center">{exerciseName}</h1>
+          <div className="bg-mainbg py-4 px-8 rounded-3xl flex justify-center">
+            {isLastSlide && <button>Mein Button</button>}
+          </div>
         </div>
       </div>
     </>
