@@ -66,7 +66,7 @@ function Workout() {
   console.log(setWorkoutCompleteData);
 
   const { program } = data;
-  
+
   return (
     <>
       <button
@@ -96,7 +96,7 @@ function Workout() {
                         workoutId: workout.id,
                       },
                     });
-                    //publish here ;)
+                    // publish here ;)
                     await refetch();
                     setIsComplete((oldIsComplete) => !oldIsComplete);
                   }}
