@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import Popup from "../components/Popup";
-import close, { ReactComponent as Close } from "../images/close.svg";
+import { ReactComponent as Close } from "../images/close.svg";
 
 function ExcEnd() {
   const [showModal, setShowModal] = useState(false);

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { NavLink } from "react-router-dom";
 
 function ExcwithTime({ isPaused, exerciseName, duration, isLastSlide }) {
   // props taken by WorkoutSwipe
@@ -42,9 +43,15 @@ function ExcwithTime({ isPaused, exerciseName, duration, isLastSlide }) {
             {timerPaused ? "Resume" : "Pause"}
           </button>
           <h1 className="text-center">{exerciseName}</h1>
-          <div className="bg-mainbg py-4 px-8 rounded-3xl flex justify-center">
-            {isLastSlide && <button>Mein Button</button>}
-          </div>
+          <NavLink to={`/exercise/workout/training/end`}>
+            <div className="flex justify-center">
+              {isLastSlide && (
+                <button className="text-black px-6 py-3 bg-gradient-to-br from-orange to-pink rounded-3xl mt-14">
+                  geschafft
+                </button>
+              )}
+            </div>
+          </NavLink>
         </div>
       </div>
     </>

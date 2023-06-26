@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     element: <WorkoutSwipe />,
   },
   {
-    path: "/exercise/workout/:id/training/end",
+    path: "/exercise/workout/training/end",
     element: <ExerciseEnd />,
   },
 ]);

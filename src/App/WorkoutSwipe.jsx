@@ -174,7 +174,7 @@ function WorkoutSwipe() {
           <SwipeRight />
         </button>
       </div>
-      <div className="h-[80vh] mx-auto w-[100%] overflow-hidden">
+      <div className="h-[100vh] mx-auto w-[100%] overflow-hidden">
         <div className="pagination-container">{renderPagination()}</div>
         <div
           className="flex transition-transform duration-300"
