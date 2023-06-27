@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createPortal } from "react-dom";
-import Popup from "../components/Popup";
+import "../css/modal.css";
+import PopupEnd from "../components/PopupEnd";
 import { ReactComponent as Close } from "../images/close.svg";
 
 function ExcEnd() {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal3, setShowModal3] = useState(false);
   return (
     <>
-      <button
-        onClick={() => setShowModal(true)}
-        className="fixed top-5 right-5"
-      >
-        <Close />
-      </button>
-      {showModal &&
-        createPortal(
-          <Popup onClose={() => setShowModal(false)} />,
-          document.body
-        )}
+      <div>
+        <button
+          onClick={() => setShowModal3(true)}
+          className="fixed top-5 right-5 z-[499]"
+        >
+          <Close />
+        </button>
+
+        {showModal3 &&
+          createPortal(
+            <PopupEnd onClose={() => setShowModal3(false)} />,
+            document.body
+          )}
+      </div>
       <>
         <div className="mt-56">
           <h1 className="text-center">Glückwunsch!</h1>

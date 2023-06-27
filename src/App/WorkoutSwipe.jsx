@@ -81,7 +81,7 @@ function WorkoutSwipe() {
             isPaused={activeSlide !== index}
             exerciseName={exerciseName}
             duration={duration}
-            exerciseDescribtion={exerciseDescribtion} // The duration, description, Name of the exercise as a prop
+            exerciseDescribtion={exerciseDescribtion} // The Lastslide, Pausefunction duration, description, Name of the exercise as a prop
           />
           <p>{exerciseName}</p> {/* Display the name of the exercise */}
         </div>
