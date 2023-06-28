@@ -8,7 +8,9 @@ export default function Infocard({ onClose, exercise }) {
           <div className="mx-9">
             <h1 className="mt-8">{exercise.exercise.name}</h1>
             <div className="mt-4 mb-5">
-              <p>{exercise.exercise.description}</p>
+              <p className="whitespace-pre-wrap">
+                {exercise.exercise.description}
+              </p>
             </div>
             <div className="flex flex-col justify-center items-center mb-20">
               <button
