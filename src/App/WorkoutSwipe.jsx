@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useQuery, useMutation, gql } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { createPortal } from "react-dom";
 import "../css/pagination.css";
@@ -58,8 +58,6 @@ function WorkoutSwipe() {
     variables: { programId, workoutId },
   });
   const [activeSlide, setActiveSlide] = useState(0);
-  // const isTimerPaused = activeSlide !== 0;
-  // const [currentExercise, setCurrentExercise] = useState();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

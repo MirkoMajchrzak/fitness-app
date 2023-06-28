@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useQuery, useMutation, gql } from "@apollo/client";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
-import { removeFragmentSpreadFromDocument } from "@apollo/client/utilities";
+import { NavLink, useParams } from "react-router-dom";
 import { ReactComponent as Backbtn } from "../images/backbtn.svg";
 import Popup from "../components/Popup";
 
@@ -40,7 +39,6 @@ function Workout() {
   const [showModal, setShowModal] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   // Close Button Function
-  // const navigate = useNavigate();
   const { programId, workoutId } = useParams();
 
   const { data, loading, error, refetch } = useQuery(PROGRAM, {

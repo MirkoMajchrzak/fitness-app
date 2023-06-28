@@ -46,7 +46,7 @@ function ExcwithTime({ isPaused, exerciseName, duration, isLastSlide }) {
           <NavLink to={`/exercise/workout/training/end`}>
             <div className="flex justify-center">
               {isLastSlide && (
-                <button className="text-black px-6 py-3 bg-gradient-to-br from-orange to-pink rounded-3xl mt-14">
+                <button className="text-black px-6 py-3 bg-gradient-to-br from-orange to-pink rounded-3xl mt-14 shadow-lg shadow-black z-[12]">
                   geschafft
                 </button>
               )}
