@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { NavLink } from "react-router-dom";
 
@@ -39,9 +39,11 @@ function ExcwithTime({ isPaused, exerciseName, duration, isLastSlide }) {
               {renderTime}
             </CountdownCircleTimer>
           </div>
-          <button onClick={handlePauseResume}>
-            {timerPaused ? "Resume" : "Pause"}
-          </button>
+          <div className="mt-2">
+            <button onClick={handlePauseResume}>
+              {timerPaused ? "Resume" : "Pause"}
+            </button>
+          </div>
           <h1 className="text-center">{exerciseName}</h1>
           <NavLink to={`/exercise/workout/training/end`}>
             <div className="flex justify-center">

@@ -164,14 +164,20 @@ function WorkoutSwipe() {
             document.body
           )}
       </div>
-      <div className="fixed z-[300] top-1/2 flex justify-between px-2 w-[100vw]">
-        <button onClick={handlePrevSlide}>
-          <SwipeLeft />
-        </button>
-        <button onClick={handleNextSlide}>
-          <SwipeRight />
-        </button>
-      </div>
+
+      <button
+        className="fixed z-[300] top-1/2 left-2"
+        onClick={handlePrevSlide}
+      >
+        <SwipeLeft />
+      </button>
+      <button
+        className="fixed z-[300] top-1/2 right-2"
+        onClick={handleNextSlide}
+      >
+        <SwipeRight />
+      </button>
+
       <div className="h-[100vh] mx-auto w-[100%] overflow-hidden">
         <div className="pagination-container">{renderPagination()}</div>
         <div
