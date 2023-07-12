@@ -75,6 +75,7 @@ function WorkoutSwipe() {
       return (
         <div key={index}>
           <ExcwithTime
+            workoutId={workoutId}
             isLastSlide={isLastSlide}
             isPaused={activeSlide !== index}
             exerciseName={exerciseName}
