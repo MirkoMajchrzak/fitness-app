@@ -61,7 +61,7 @@ function WorkoutSwipe() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  console.log(data);
+  console.log(data, workoutId);
 
   const { exercises } = data.program.workouts[0]; // Assuming there is only one workout in the program, needs to be improved
 
