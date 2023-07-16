@@ -31,7 +31,7 @@ export default function Popup({ onClose }) {
   console.log(data);
 
   if (loading) {
-    return <h2>Loading, take your supps... </h2>;
+    return <div className=""><img src="../images/loading.gif" alt="loading" /></div>;
   }
   if (error) {
     return <h2>Something went wrong...</h2>;

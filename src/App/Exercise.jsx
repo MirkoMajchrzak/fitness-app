@@ -40,7 +40,11 @@ export default function Exercise() {
   });
 
   if (loading) {
-    return <h2>Loading, take your supps... </h2>;
+    return (
+      <div className="flex justify-center items-center">
+        <img className="w-1/2" src="../images/loading.gif" alt="loading" />
+      </div>
+    );
   }
   if (error) {
     return <h2>Something went wrong...</h2>;
