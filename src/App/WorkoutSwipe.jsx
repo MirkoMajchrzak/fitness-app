@@ -91,6 +91,7 @@ function WorkoutSwipe() {
       return (
         <div key={index}>
           <ExcwithReps
+            workoutId={workoutId}
             isLastSlide={isLastSlide}
             reps={exercise.reps}
             exerciseName={exerciseName}
