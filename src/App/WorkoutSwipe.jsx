@@ -59,13 +59,7 @@ function WorkoutSwipe() {
   });
   const [activeSlide, setActiveSlide] = useState(0);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center">
-        <img className="w-1/2" src="../images/loading.gif" alt="loading" />
-      </div>
-    );
-  }
+  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
   console.log(data, workoutId);
 
