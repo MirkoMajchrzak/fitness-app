@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { NavLink } from "react-router-dom";
 import "../css/modal.css";
 import PopupEnd from "../components/PopupEnd";
+import PopupRating from "../components/PopupRating";
 import { ReactComponent as Close } from "../images/close.svg";
 
 function ExcEnd() {
   const [showModal3, setShowModal3] = useState(false);
+  const [showModal4, setShowModal4] = useState(false);
   return (
     <>
       <div>
@@ -30,20 +33,36 @@ function ExcEnd() {
           <p className="text-center mt-11">Wie war das Workout?</p>
         </div>
         <div className="flex justify-around mt-6">
-          <button className="bg-greybg rounded-md w-[120px] h-[78px] flex justify-center items-center">
+          <button
+            onClick={() => setShowModal4(true)}
+            className="bg-greybg rounded-md w-[120px] h-[78px] flex justify-center items-center"
+          >
             <p className="w-min break-words">zu leicht</p>
           </button>
-          <button className="bg-greybg rounded-md w-[120px] h-[78px] flex justify-center items-center">
+          <button
+            onClick={() => setShowModal4(true)}
+            className="bg-greybg rounded-md w-[120px] h-[78px] flex justify-center items-center"
+          >
             <p className="w-min break-words">genau richtig</p>
           </button>
-          <button className="bg-greybg rounded-md w-[120px] h-[78px] flex justify-center items-center">
+          <button
+            onClick={() => setShowModal4(true)}
+            className="bg-greybg rounded-md w-[120px] h-[78px] flex justify-center items-center"
+          >
             <p className="w-min break-words">zu schwer</p>
           </button>
+          {showModal4 &&
+            createPortal(
+              <PopupRating onClose={() => setShowModal4(false)} />,
+              document.body
+            )}
         </div>
         <div className="flex justify-center mt-6">
-          <button className="text-greybg text-center">
-            Bewertung überspringen
-          </button>
+          <NavLink to={`/`}>
+            <button className="text-greybg text-center">
+              Bewertung überspringen
+            </button>
+          </NavLink>
         </div>
       </>
     </>
